@@ -10,5 +10,5 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.github.quantisbr:brazilian-holidays:1.0.0")
+    implementation("com.github.quantisbr:brazilian-calendar:1.0.0")
 }

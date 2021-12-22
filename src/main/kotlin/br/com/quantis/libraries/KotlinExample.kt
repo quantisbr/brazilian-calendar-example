@@ -15,8 +15,11 @@
  */
 package br.com.quantis.libraries
 
-import br.com.quantis.libraries.dates.DateRange
-import br.com.quantis.libraries.dates.holidays.brazil.*
+import br.com.quantis.libraries.calendar.brazil.*
+import br.com.quantis.libraries.calendar.religious.toCarnivalDate
+import br.com.quantis.libraries.calendar.religious.toCorpusChristiDate
+import br.com.quantis.libraries.calendar.religious.toEasterDate
+import br.com.quantis.libraries.calendar.religious.toGoodFridayDate
 import java.time.LocalDate
 
 fun main(args: Array<String>) {
@@ -28,15 +31,15 @@ private fun example() {
     println("")
     checkIfTheDateIsHoliday()
     println("")
-    checkIfTheDateIsBankHolidayDay()
+    checkIfTheDateIsBankingHolidayDay()
     println("")
     checkIfTheDateIsBusinessDay()
     println("")
-    checkIfTheDateIsBankBusinessDay()
+    checkIfTheDateIsBankingBusinessDay()
     println("")
     countTheNumberOfBusinessDaysInTheDateRange()
     println("")
-    countTheNumberOfBankBusinessDaysInTheDateRange()
+    countTheNumberOfBankingBusinessDaysInTheDateRange()
 }
 
 private fun dateOfMobileReligiouseEventFromTheYear() {
@@ -55,12 +58,12 @@ private fun checkIfTheDateIsHoliday() {
         println("The '$date' is not a holiday")
 }
 
-private fun checkIfTheDateIsBankHolidayDay() {
+private fun checkIfTheDateIsBankingHolidayDay() {
     val date = LocalDate.now()
-    if (date.isBankHoliday())
-        println("The '$date' is a bank holiday")
+    if (date.isBankingHoliday())
+        println("The '$date' is a banking holiday")
     else
-        println("The '$date' is not a bank holiday")
+        println("The '$date' is not a banking holiday")
 }
 
 private fun checkIfTheDateIsBusinessDay() {
@@ -71,24 +74,24 @@ private fun checkIfTheDateIsBusinessDay() {
         println("The '$date' is not a business day")
 }
 
-private fun checkIfTheDateIsBankBusinessDay() {
+private fun checkIfTheDateIsBankingBusinessDay() {
     val date = LocalDate.now()
-    if (date.isBankBusinessDay())
-        println("The '$date' is a bank business day")
+    if (date.isBankingBusinessDay())
+        println("The '$date' is a banking business day")
     else
-        println("The '$date' is not a bank business day")
+        println("The '$date' is not a banking business day")
 }
 
 private fun countTheNumberOfBusinessDaysInTheDateRange() {
     val start = LocalDate.of(2019, 3, 12)
     val end = LocalDate.of(2021, 11, 15)
-    val range = DateRange(start, end)
+    val range = start..end
     println("Number of business day: " + range.countBusinessDays())
 }
 
-private fun countTheNumberOfBankBusinessDaysInTheDateRange() {
+private fun countTheNumberOfBankingBusinessDaysInTheDateRange() {
     val start = LocalDate.of(2019, 3, 12)
     val end = LocalDate.of(2021, 11, 15)
-    val range = DateRange(start, end)
-    println("Number of bank business day: " + range.countBankBusinessDays())
+    val range = start..end
+    println("Number of banking business day: " + range.countBankingBusinessDays())
 }
