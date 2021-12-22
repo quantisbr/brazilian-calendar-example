@@ -40,6 +40,10 @@ private fun example() {
     countTheNumberOfBusinessDaysInTheDateRange()
     println("")
     countTheNumberOfBankingBusinessDaysInTheDateRange()
+    println()
+    getTheNextBusinessDay()
+    println()
+    getTheNextBankingBusinessDay()
 }
 
 private fun dateOfMobileReligiouseEventFromTheYear() {
@@ -94,4 +98,15 @@ private fun countTheNumberOfBankingBusinessDaysInTheDateRange() {
     val end = LocalDate.of(2021, 11, 15)
     val range = start..end
     println("Number of banking business day: " + range.countBankingBusinessDays())
+}
+
+
+private fun getTheNextBusinessDay() {
+    val date = LocalDate.now()
+    println("Next business day after $date is ${date.nextBusinessDay()}")
+}
+
+private fun getTheNextBankingBusinessDay() {
+    val date = LocalDate.now()
+    println("Next banking business day after $date is ${date.nextBusinessDay()}")
 }

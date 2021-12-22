@@ -52,6 +52,14 @@ public class JavaExample {
         System.out.println("");
 
         countTheNumberOfBankingBusinessDaysInTheDateRange();
+
+        System.out.println();
+
+        getTheNextBusinessDay();
+
+        System.out.println();
+
+        getTheNextBankingBusinessDay();
     }
 
     private void getDateOfMobileReligiouseEventFromTheYear() {
@@ -106,5 +114,15 @@ public class JavaExample {
         final LocalDate end = LocalDate.of(2021, 11, 15);
 
         System.out.println("Number of banking business day: " + BrazilianCalendar.countBankingBusinessDays(start, end));
+    }
+
+    private void getTheNextBusinessDay() {
+        final LocalDate date = LocalDate.now();
+        System.out.printf("Next business day after %s is %s%n", date, BrazilianCalendar.nextBusinessDay(date, true));
+    }
+
+    private void getTheNextBankingBusinessDay() {
+        final LocalDate date = LocalDate.now();
+        System.out.printf("Next banking business day after %s is %s%n", date, BrazilianCalendar.nextBankingBusinessDay(date));
     }
 }
